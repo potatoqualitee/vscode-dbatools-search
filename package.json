@@ -1,0 +1,65 @@
+{
+  "name": "dbatools-search",
+  "displayName": "dbatools Search",
+  "description": "Search dbatools for selected text from VS Code",
+  "version": "0.0.1",
+  "publisher": "dbatools",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "author": {
+    "name": "Chrissy LeMaire",
+    "url": "https://github.com/potatoqualitee"
+  },
+  "icon": "resources/search.png",
+  "homepage": "https://github.com/potatoqualitee/vscode-dbatoolsdocs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/potatoqualitee/vscode-dbatoolsdocs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/potatoqualitee/vscode-dbatoolsdocs/issues"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.dbatoolsSearch"
+  ],
+  "main": "./extension",
+  "contributes": {
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorHasSelection",
+          "command": "extension.dbatoolsSearch",
+          "group": "navigation"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "extension.dbatoolsSearch",
+        "title": "Search dbatools.io"
+      }
+    ],
+    "configuration": {
+      "title": "dbatools Search Configuration",
+      "type": "object",
+      "properties": {
+        "dbatoolsSearch.QueryTemplate": {
+          "type": "string",
+          "default": "https://dbatools.io/?s=%SELECTION%",
+          "description": "Search query."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "vscode": "^1.0.0"
+  }
+}
