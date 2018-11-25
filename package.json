@@ -1,7 +1,7 @@
 {
   "name": "dbatools-search",
   "displayName": "dbatools Search",
-  "description": "Search dbatools or GoogleOverflow for selected text from VS Code",
+  "description": "Search dbatools.io, microsoft docs and google from selected text in VS Code",
   "version": "0.0.1",
   "publisher": "dbatools",
   "engines": {

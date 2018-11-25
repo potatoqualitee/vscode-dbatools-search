@@ -18,6 +18,7 @@ function GetSelectedText() {
   return selectedText;
 }
 
+// the meat
 var vscode = require('vscode');
 
 function activate(context) {
