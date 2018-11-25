@@ -1,8 +1,8 @@
 {
-  "name": "dbatools-search",
+  "name": "search",
   "displayName": "dbatools search",
-  "description": "Search dbatools.io, microsoft docs and google from selected text",
-  "version": "0.0.3",
+  "description": "Search dbatools.io, microsoft docs or google from selected text",
+  "version": "0.0.1",
   "icon": "resources/search.png",
   "publisher": "dbatools",
   "engines": {
