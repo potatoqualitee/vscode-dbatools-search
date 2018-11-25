@@ -1,8 +1,8 @@
 {
   "name": "search",
   "displayName": "dbatools simple search",
-  "description": "Search dbatools.io, microsoft docs or google right from your code",
-  "version": "0.0.1",
+  "description": "search right from your code: dbatools, microsoft docs and google",
+  "version": "1.0.0",
   "icon": "resources/search.png",
   "publisher": "dbatools",
   "engines": {
