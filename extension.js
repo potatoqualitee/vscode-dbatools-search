@@ -23,6 +23,9 @@ function GetSelectedText() {
 const CFG_SECTION = "dbatoolsSearch";
 const CFG_QUERY = "dbatoolsQueryTemplate";
 const CMD_ID = "extension.dbatoolsSearch";
+const DOCS_CFG_SECTION = "docsSearch";
+const DOCS_CFG_QUERY = "docsQueryTemplate";
+const DOCS_CMD_ID = "extension.docsSearch";
 const STACK_CFG_SECTION = "stackSearch";
 const STACK_CFG_QUERY = "stackQueryTemplate";
 const STACK_CMD_ID = "extension.stackSearch";
@@ -32,6 +35,8 @@ var vscode = require('vscode');
 function activate(context) {
   var disposable = vscode.commands.registerTextEditorCommand(CMD_ID, WebSearch);
   var stackdisposable = vscode.commands.registerTextEditorCommand(STACK_CMD_ID, StackWebSearch);
+  var docsdisposable = vscode.commands.registerTextEditorCommand(DOCS_CMD_ID, DocsWebSearch);
+  context.subscriptions.push(docsdisposable);
   context.subscriptions.push(stackdisposable);
   context.subscriptions.push(disposable);
 }
@@ -56,7 +61,22 @@ function WebSearch() {
   vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(query));
 }
 
-// I don't knwo js, forgive me for the duplicated code
+// I don't know js, forgive me for the duplicated code
+function DocsWebSearch() {
+  var selectedText = GetSelectedText();
+  if (!selectedText)
+    return;
+
+  var uriText = encodeURI(selectedText);
+
+  var docsSearchCfg = vscode.workspace.getConfiguration(DOCS_CFG_SECTION);
+  const docsQueryTemplate = docsSearchCfg.get(DOCS_CFG_QUERY);
+  var query = docsQueryTemplate.replace("%SELECTION%", uriText);
+
+  vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(query));
+}
+
+// I don't know js, forgive me for the duplicated code
 function StackWebSearch() {
   var selectedText = GetSelectedText();
   if (!selectedText)

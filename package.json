@@ -37,6 +37,11 @@
         },
         {
           "when": "editorHasSelection",
+          "command": "extension.docsSearch",
+          "group": "dbatools"
+        },
+        {
+          "when": "editorHasSelection",
           "command": "extension.stackSearch",
           "group": "dbatools"
         }
@@ -65,15 +70,15 @@
           "default": "https://dbatools.io/?s=%SELECTION%",
           "description": "Search query for dbatools."
         },
-        "stackSearch.stackQueryTemplate": {
-          "type": "string",
-          "default": "http://stackoverflow.com/search?q=%SELECTION%",
-          "description": "Search query for StackOverflow."
-        },
         "docsSearch.docsQueryTemplate": {
           "type": "string",
           "default": "https://docs.microsoft.com/en-us/search/index?search=%SELECTION%",
           "description": "Search query for docs.microsoft.com."
+        },
+        "stackSearch.stackQueryTemplate": {
+          "type": "string",
+          "default": "http://stackoverflow.com/search?q=%SELECTION%",
+          "description": "Search query for stackoverflow.com."
         }
       }
     }
