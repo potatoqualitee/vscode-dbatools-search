@@ -1,7 +1,7 @@
 {
   "name": "search",
-  "displayName": "dbatools search",
-  "description": "Search dbatools.io, microsoft docs or google from selected text",
+  "displayName": "dbatools simple search",
+  "description": "Search dbatools.io, microsoft docs or google right from your code",
   "version": "0.0.1",
   "icon": "resources/search.png",
   "publisher": "dbatools",
