@@ -50,7 +50,7 @@
     "commands": [
       {
         "command": "extension.dbatoolsSearch",
-        "title": "Search dbatools"
+        "title": "Search dbatools.io"
       },
 	    {
         "command": "extension.docsSearch",
@@ -58,7 +58,7 @@
       },
 	    {
         "command": "extension.stackSearch",
-        "title": "Search stackoverflow"
+        "title": "Search stackoverflow.com"
       }
     ],
     "configuration": {
