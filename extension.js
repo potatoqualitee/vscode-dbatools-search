@@ -18,27 +18,16 @@ function GetSelectedText() {
   return selectedText;
 }
 
-
-// Constant strings 
-const CFG_SECTION = "dbatoolsSearch";
-const CFG_QUERY = "dbatoolsQueryTemplate";
-const CMD_ID = "extension.dbatoolsSearch";
-const DOCS_CFG_SECTION = "docsSearch";
-const DOCS_CFG_QUERY = "docsQueryTemplate";
-const DOCS_CMD_ID = "extension.docsSearch";
-const STACK_CFG_SECTION = "stackSearch";
-const STACK_CFG_QUERY = "stackQueryTemplate";
-const STACK_CMD_ID = "extension.stackSearch";
-
 var vscode = require('vscode');
 
 function activate(context) {
-  var disposable = vscode.commands.registerTextEditorCommand(CMD_ID, WebSearch);
-  var stackdisposable = vscode.commands.registerTextEditorCommand(STACK_CMD_ID, StackWebSearch);
-  var docsdisposable = vscode.commands.registerTextEditorCommand(DOCS_CMD_ID, DocsWebSearch);
+  var dbatoolsdisposable = vscode.commands.registerTextEditorCommand("extension.dbatoolsSearch", dbatoolsSearch);
+  var stackdisposable = vscode.commands.registerTextEditorCommand("extension.stackSearch", stackSearch);
+  var docsdisposable = vscode.commands.registerTextEditorCommand("extension.docsSearch", docsSearch);
+  
+  context.subscriptions.push(dbatoolsdisposable);
   context.subscriptions.push(docsdisposable);
   context.subscriptions.push(stackdisposable);
-  context.subscriptions.push(disposable);
 }
 exports.activate = activate;
 
@@ -47,45 +36,45 @@ function deactivate() {
 exports.deactivate = deactivate;
 
 // Launches the search URL in default browser
-function WebSearch() {
+function dbatoolsSearch() {
   var selectedText = GetSelectedText();
   if (!selectedText)
     return;
 
   var uriText = encodeURI(selectedText);
 
-  var dbatoolsSearchCfg = vscode.workspace.getConfiguration(CFG_SECTION);
-  const queryTemplate = dbatoolsSearchCfg.get(CFG_QUERY);
+  var dbatoolsSearchCfg = vscode.workspace.getConfiguration("dbatoolsSearch");
+  const queryTemplate = dbatoolsSearchCfg.get("dbatoolsQueryTemplate");
   var query = queryTemplate.replace("%SELECTION%", uriText);
 
   vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(query));
 }
 
 // I don't know js, forgive me for the duplicated code
-function DocsWebSearch() {
+function docsSearch() {
   var selectedText = GetSelectedText();
   if (!selectedText)
     return;
 
   var uriText = encodeURI(selectedText);
 
-  var docsSearchCfg = vscode.workspace.getConfiguration(DOCS_CFG_SECTION);
-  const docsQueryTemplate = docsSearchCfg.get(DOCS_CFG_QUERY);
+  var docsSearchCfg = vscode.workspace.getConfiguration("docsSearch");
+  const docsQueryTemplate = docsSearchCfg.get("docsQueryTemplate");
   var query = docsQueryTemplate.replace("%SELECTION%", uriText);
 
   vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(query));
 }
 
 // I don't know js, forgive me for the duplicated code
-function StackWebSearch() {
+function stackSearch() {
   var selectedText = GetSelectedText();
   if (!selectedText)
     return;
 
   var uriText = encodeURI(selectedText);
 
-  var stackSearchCfg = vscode.workspace.getConfiguration(STACK_CFG_SECTION);
-  const stackQueryTemplate = stackSearchCfg.get(STACK_CFG_QUERY);
+  var stackSearchCfg = vscode.workspace.getConfiguration("stackSearch");
+  const stackQueryTemplate = stackSearchCfg.get("stackQueryTemplate");
   var query = stackQueryTemplate.replace("%SELECTION%", uriText);
 
   vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(query));
