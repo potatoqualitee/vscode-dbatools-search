@@ -21,13 +21,14 @@ function GetSelectedText() {
 var vscode = require('vscode');
 
 function activate(context) {
-  var dbatoolsdisposable = vscode.commands.registerTextEditorCommand("extension.dbatoolsSearch", dbatoolsSearch);
-  var stackdisposable = vscode.commands.registerTextEditorCommand("extension.stackSearch", stackSearch);
   var docsdisposable = vscode.commands.registerTextEditorCommand("extension.docsSearch", docsSearch);
+  var googledisposable = vscode.commands.registerTextEditorCommand("extension.googleSearch", googleSearch);
+  var dbatoolsdisposable = vscode.commands.registerTextEditorCommand("extension.dbatoolsSearch", dbatoolsSearch);
   
-  context.subscriptions.push(dbatoolsdisposable);
+
   context.subscriptions.push(docsdisposable);
-  context.subscriptions.push(stackdisposable);
+  context.subscriptions.push(googledisposable);
+  context.subscriptions.push(dbatoolsdisposable);
 }
 exports.activate = activate;
 
@@ -66,16 +67,16 @@ function docsSearch() {
 }
 
 // I don't know js, forgive me for the duplicated code
-function stackSearch() {
+function googleSearch() {
   var selectedText = GetSelectedText();
   if (!selectedText)
     return;
 
   var uriText = encodeURI(selectedText);
 
-  var stackSearchCfg = vscode.workspace.getConfiguration("stackSearch");
-  const stackQueryTemplate = stackSearchCfg.get("stackQueryTemplate");
-  var query = stackQueryTemplate.replace("%SELECTION%", uriText);
+  var googleSearchCfg = vscode.workspace.getConfiguration("googleSearch");
+  const googleQueryTemplate = googleSearchCfg.get("googleQueryTemplate");
+  var query = googleQueryTemplate.replace("%SELECTION%", uriText);
 
   vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(query));
 }

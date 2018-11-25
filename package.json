@@ -1,7 +1,7 @@
 {
   "name": "dbatools-search",
   "displayName": "dbatools Search",
-  "description": "Search dbatools or StackOverflow for selected text from VS Code",
+  "description": "Search dbatools or GoogleOverflow for selected text from VS Code",
   "version": "0.0.1",
   "publisher": "dbatools",
   "engines": {
@@ -24,9 +24,9 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.dbatoolsSearch",
     "onCommand:extension.docsSearch",
-    "onCommand:extension.stackSearch"
+    "onCommand:extension.googleSearch",
+    "onCommand:extension.dbatoolsSearch"
   ],
   "main": "./extension",
   "contributes": {
@@ -34,56 +34,56 @@
       "editor/context": [
         {
           "when": "editorHasSelection",
-          "command": "extension.dbatoolsSearch",
-          "group": "dbatools"
-        },
-        {
-          "when": "editorHasSelection",
           "command": "extension.docsSearch",
           "group": "dbatools"
         },
         {
           "when": "editorHasSelection",
-          "command": "extension.stackSearch",
+          "command": "extension.googleSearch",
+          "group": "dbatools"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "extension.dbatoolsSearch",
           "group": "dbatools"
         }
       ]
     },
     "commands": [
-      {
-        "command": "extension.dbatoolsSearch",
-        "title": "Search dbatools.io",
-        "category": "dbatools"
-      },
 	    {
         "command": "extension.docsSearch",
         "title": "Search microsoft docs",
         "category": "docs"
       },
 	    {
-        "command": "extension.stackSearch",
-        "title": "Search stackoverflow.com",
-        "category": "stack"
+        "command": "extension.googleSearch",
+        "title": "Search google",
+        "category": "google"
+      },
+      {
+        "command": "extension.dbatoolsSearch",
+        "title": "Search dbatools",
+        "category": "dbatools"
       }
     ],
     "configuration": {
       "title": "dbatools Search Configuration",
       "type": "object",
       "properties": {
-        "dbatoolsSearch.dbatoolsQueryTemplate": {
-          "type": "string",
-          "default": "https://dbatools.io/?s=%SELECTION%",
-          "description": "Search query for dbatools."
-        },
         "docsSearch.docsQueryTemplate": {
           "type": "string",
           "default": "https://docs.microsoft.com/en-us/search/index?search=%SELECTION%",
           "description": "Search query for docs.microsoft.com."
         },
-        "stackSearch.stackQueryTemplate": {
+        "googleSearch.googleQueryTemplate": {
           "type": "string",
-          "default": "http://stackoverflow.com/search?q=%SELECTION%",
-          "description": "Search query for stackoverflow.com."
+          "default": "https://www.google.com/search?q=%SELECTION%",
+          "description": "Search query for google.com."
+        },
+        "dbatoolsSearch.dbatoolsQueryTemplate": {
+          "type": "string",
+          "default": "https://dbatools.io/?s=%SELECTION%",
+          "description": "Search query for dbatools."
         }
       }
     }
