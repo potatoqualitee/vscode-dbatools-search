@@ -1,8 +1,8 @@
 {
   "name": "dbatools-search",
-  "displayName": "dbatools Search",
-  "description": "Search dbatools.io, microsoft docs and google from selected text in VS Code",
-  "version": "0.0.1",
+  "displayName": "dbatools search",
+  "description": "Search dbatools.io, microsoft docs and google from selected text",
+  "version": "0.0.3",
   "icon": "resources/search.png",
   "publisher": "dbatools",
   "engines": {
@@ -12,14 +12,13 @@
     "name": "Chrissy LeMaire",
     "url": "https://github.com/potatoqualitee"
   },
-  "icon": "resources/search.png",
-  "homepage": "https://github.com/potatoqualitee/vscode-dbatoolsdocs",
+  "homepage": "https://github.com/potatoqualitee/vscode-dbatools-search",
   "repository": {
     "type": "git",
-    "url": "https://github.com/potatoqualitee/vscode-dbatoolsdocs.git"
+    "url": "https://github.com/potatoqualitee/vscode-dbatools-search.git"
   },
   "bugs": {
-    "url": "https://github.com/potatoqualitee/vscode-dbatoolsdocs/issues"
+    "url": "https://github.com/potatoqualitee/vscode-dbatools-search/issues"
   },
   "categories": [
     "Other"

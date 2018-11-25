@@ -4,11 +4,11 @@
 
 ## Features
 
-This dbatools extension allows you to search dbatools.io and docs.dbatools.io for the highlighted text. The results are displayed in the default browser.
+This dbatools extension allows you to search dbatools.io, microsoft docs or google for the highlighted text. The results are displayed in the default browser.
 
 ## Configuration
 
-If you run into any problems, please log an issue on [GitHub](https://github.com/potatoqualitee/vscode-dbatoolsdocs/issues).
+If you run into any problems, please log an issue on [GitHub](https://github.com/potatoqualitee/vscode-dbatools-search/issues).
 
 
 ![dbatools search](resources/search.gif)
