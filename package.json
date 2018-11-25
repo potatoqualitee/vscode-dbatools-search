@@ -3,6 +3,7 @@
   "displayName": "dbatools Search",
   "description": "Search dbatools.io, microsoft docs and google from selected text in VS Code",
   "version": "0.0.1",
+  "icon": "resources/search.png",
   "publisher": "dbatools",
   "engines": {
     "vscode": "^1.11.0"
