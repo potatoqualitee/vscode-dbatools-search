@@ -23,18 +23,17 @@ const CFG_SECTION = "dbatoolsSearch";
 const CFG_QUERY = "QueryTemplate";
 const CMD_ID = "extension.dbatoolsSearch";
 // Constant strings 
-const SECOND_CFG_SECTION = "dbatoolsBlogSearch";
+const SECOND_CFG_SECTION = "stackSearch";
 const SECOND_CFG_QUERY = "SecondQueryTemplate";
-const SECOND_CMD_ID = "extension.dbatoolsBlogSearch";
+const SECOND_CMD_ID = "extension.stackSearch";
 
 var vscode = require('vscode');
 
 function activate(context) {
-
   var disposable = vscode.commands.registerTextEditorCommand(CMD_ID, WebSearch);
-  var seconddisposable = vscode.commands.registerTextEditorCommand(SECOND_CMD_ID, SecondWebSearch);
-
   context.subscriptions.push(disposable);
+
+  var seconddisposable = vscode.commands.registerTextEditorCommand(SECOND_CMD_ID, SecondWebSearch);
   context.subscriptions.push(seconddisposable);
 }
 exports.activate = activate;
@@ -66,8 +65,8 @@ function SecondWebSearch() {
 
   var uriText = encodeURI(selectedText);
 
-  var dbatoolsBlogSearchCfg = vscode.workspace.getConfiguration(SECOND_CFG_SECTION);
-  const secondqueryTemplate = dbatoolsBlogSearchCfg.get(SECOND_CFG_QUERY);
+  var stackSearchCfg = vscode.workspace.getConfiguration(SECOND_CFG_SECTION);
+  const secondqueryTemplate = stackSearchCfg.get(SECOND_CFG_QUERY);
   var query = secondqueryTemplate.replace("%SELECTION%", uriText);
 
   vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(query));

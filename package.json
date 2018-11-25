@@ -1,7 +1,7 @@
 {
   "name": "dbatools-search",
   "displayName": "dbatools Search",
-  "description": "Search dbatools for selected text from VS Code",
+  "description": "Search dbatools or StackOverflow for selected text from VS Code",
   "version": "0.0.1",
   "publisher": "dbatools",
   "engines": {
@@ -33,12 +33,12 @@
         {
           "when": "editorHasSelection",
           "command": "extension.dbatoolsSearch",
-          "group": "navigation"
+          "group": "dbatools"
         },
         {
           "when": "editorHasSelection",
-          "command": "extension.dbatoolsBlogSearch",
-          "group": "navigation"
+          "command": "extension.stackSearch",
+          "group": "dbatools"
         }
       ]
     },
@@ -48,8 +48,8 @@
         "title": "Search dbatools.io"
       },
 	    {
-        "command": "extension.dbatoolsBlogSearch",
-        "title": "Search dbatools.io again"
+        "command": "extension.stackSearch",
+        "title": "Search stackoverflow.com"
       }
     ],
     "configuration": {
@@ -59,12 +59,12 @@
         "dbatoolsSearch.QueryTemplate": {
           "type": "string",
           "default": "https://dbatools.io/?s=%SELECTION%",
-          "description": "Search query."
+          "description": "Search query for dbatools."
         },
-        "dbatoolsBlogSearch.SecondQueryTemplate": {
+        "stackSearch.SecondQueryTemplate": {
           "type": "string",
-          "default": "https://google.com/?s=%SELECTION%",
-          "description": "Search query."
+          "default": "http://stackoverflow.com/search?q=%SELECTION%",
+          "description": "Search query for StackOverflow."
         }
       }
     }
