@@ -24,7 +24,9 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.dbatoolsSearch"
+    "onCommand:extension.dbatoolsSearch",
+    "onCommand:extension.docsSearch",
+    "onCommand:extension.stackSearch"
   ],
   "main": "./extension",
   "contributes": {
@@ -50,15 +52,18 @@
     "commands": [
       {
         "command": "extension.dbatoolsSearch",
-        "title": "Search dbatools.io"
+        "title": "Search dbatools.io",
+        "category": "dbatools"
       },
 	    {
         "command": "extension.docsSearch",
-        "title": "Search microsoft docs"
+        "title": "Search microsoft docs",
+        "category": "docs"
       },
 	    {
         "command": "extension.stackSearch",
-        "title": "Search stackoverflow.com"
+        "title": "Search stackoverflow.com",
+        "category": "stack"
       }
     ],
     "configuration": {
