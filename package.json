@@ -48,6 +48,10 @@
         "title": "Search dbatools.io"
       },
 	    {
+        "command": "extension.docsSearch",
+        "title": "Search docs.microsoft.com"
+      },
+	    {
         "command": "extension.stackSearch",
         "title": "Search stackoverflow.com"
       }
@@ -56,15 +60,20 @@
       "title": "dbatools Search Configuration",
       "type": "object",
       "properties": {
-        "dbatoolsSearch.QueryTemplate": {
+        "dbatoolsSearch.dbatoolsQueryTemplate": {
           "type": "string",
           "default": "https://dbatools.io/?s=%SELECTION%",
           "description": "Search query for dbatools."
         },
-        "stackSearch.SecondQueryTemplate": {
+        "stackSearch.stackQueryTemplate": {
           "type": "string",
           "default": "http://stackoverflow.com/search?q=%SELECTION%",
           "description": "Search query for StackOverflow."
+        },
+        "docsSearch.docsQueryTemplate": {
+          "type": "string",
+          "default": "https://docs.microsoft.com/en-us/search/index?search=%SELECTION%",
+          "description": "Search query for docs.microsoft.com."
         }
       }
     }

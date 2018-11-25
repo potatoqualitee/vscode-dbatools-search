@@ -18,23 +18,22 @@ function GetSelectedText() {
   return selectedText;
 }
 
+
 // Constant strings 
 const CFG_SECTION = "dbatoolsSearch";
-const CFG_QUERY = "QueryTemplate";
+const CFG_QUERY = "dbatoolsQueryTemplate";
 const CMD_ID = "extension.dbatoolsSearch";
-// Constant strings 
-const SECOND_CFG_SECTION = "stackSearch";
-const SECOND_CFG_QUERY = "SecondQueryTemplate";
-const SECOND_CMD_ID = "extension.stackSearch";
+const STACK_CFG_SECTION = "stackSearch";
+const STACK_CFG_QUERY = "stackQueryTemplate";
+const STACK_CMD_ID = "extension.stackSearch";
 
 var vscode = require('vscode');
 
 function activate(context) {
   var disposable = vscode.commands.registerTextEditorCommand(CMD_ID, WebSearch);
+  var stackdisposable = vscode.commands.registerTextEditorCommand(STACK_CMD_ID, StackWebSearch);
+  context.subscriptions.push(stackdisposable);
   context.subscriptions.push(disposable);
-
-  var seconddisposable = vscode.commands.registerTextEditorCommand(SECOND_CMD_ID, SecondWebSearch);
-  context.subscriptions.push(seconddisposable);
 }
 exports.activate = activate;
 
@@ -58,16 +57,16 @@ function WebSearch() {
 }
 
 // I don't knwo js, forgive me for the duplicated code
-function SecondWebSearch() {
+function StackWebSearch() {
   var selectedText = GetSelectedText();
   if (!selectedText)
     return;
 
   var uriText = encodeURI(selectedText);
 
-  var stackSearchCfg = vscode.workspace.getConfiguration(SECOND_CFG_SECTION);
-  const secondqueryTemplate = stackSearchCfg.get(SECOND_CFG_QUERY);
-  var query = secondqueryTemplate.replace("%SELECTION%", uriText);
+  var stackSearchCfg = vscode.workspace.getConfiguration(STACK_CFG_SECTION);
+  const stackQueryTemplate = stackSearchCfg.get(STACK_CFG_QUERY);
+  var query = stackQueryTemplate.replace("%SELECTION%", uriText);
 
   vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(query));
 }
