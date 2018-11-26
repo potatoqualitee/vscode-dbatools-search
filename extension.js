@@ -47,8 +47,8 @@ function dbatoolsSearch() {
   var uriText = encodeURI(selectedText);
 
   var search = vscode.workspace.getConfiguration("search");
-  const queryTemplate = search.get("dbatoolsQueryTemplate");
-  var query = queryTemplate.replace("%SELECTION%", uriText);
+  const queryTemplate = search.get("queryTemplateDbatools");
+  var query = queryTemplate.replace("-searchphrase-", uriText);
 
   vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(query));
 }
@@ -62,8 +62,8 @@ function docsSearch() {
   var uriText = encodeURI(selectedText);
 
   var search = vscode.workspace.getConfiguration("search");
-  const docsQueryTemplate = search.get("docsQueryTemplate");
-  var query = docsQueryTemplate.replace("%SELECTION%", uriText);
+  const queryTemplateDocs = search.get("queryTemplateDocs");
+  var query = queryTemplateDocs.replace("-searchphrase-", uriText);
 
   vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(query));
 }
@@ -77,8 +77,8 @@ function googleSearch() {
   var uriText = encodeURI(selectedText);
 
   var search = vscode.workspace.getConfiguration("search");
-  const googleQueryTemplate = search.get("googleQueryTemplate");
-  var query = googleQueryTemplate.replace("%SELECTION%", uriText);
+  const queryTemplateGoogle = search.get("queryTemplateGoogle");
+  var query = queryTemplateGoogle.replace("-searchphrase-", uriText);
 
   vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(query));
 }
@@ -92,8 +92,8 @@ function stackSearch() {
   var uriText = encodeURI(selectedText);
 
   var search = vscode.workspace.getConfiguration("search");
-  const stackQueryTemplate = search.get("stackQueryTemplate");
-  var query = stackQueryTemplate.replace("%SELECTION%", uriText);
+  const queryTemplateStackoverflow = search.get("queryTemplateStackoverflow");
+  var query = queryTemplateStackoverflow.replace("-searchphrase-", uriText);
 
   vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(query));
 }

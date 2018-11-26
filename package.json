@@ -2,7 +2,7 @@
   "name": "search",
   "displayName": "dbatools simple search",
   "description": "search right from your code: dbatools, microsoft docs and google",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "icon": "resources/search.png",
   "publisher": "dbatools",
   "engines": {
@@ -86,11 +86,6 @@
           "default": false,
           "description": "Enable search context for stackoverflow"
         },
-        "search.showDbatools": {
-          "type": "boolean",
-          "default": true,
-          "description": "Enable search context for dbatools"
-        },
         "search.showGoogle": {
           "type": "boolean",
           "default": true,
@@ -101,24 +96,29 @@
           "default": true,
           "description": "Enable search context for docs"
         },
-        "search.docsQueryTemplate": {
+        "search.showDbatools": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable search context for dbatools"
+        },
+        "search.queryTemplateDocs": {
           "type": "string",
-          "default": "https://docs.microsoft.com/en-us/search/index?search=%SELECTION%",
+          "default": "https://docs.microsoft.com/en-us/search/index?search=-searchphrase-",
           "description": "Search query for docs.microsoft.com"
         },
-        "search.googleQueryTemplate": {
+        "search.queryTemplateGoogle": {
           "type": "string",
-          "default": "https://www.google.com/search?q=%SELECTION%",
+          "default": "https://www.google.com/search?q=-searchphrase-",
           "description": "Search query for google.com"
         },
-        "search.dbatoolsQueryTemplate": {
+        "search.queryTemplateDbatools": {
           "type": "string",
-          "default": "https://dbatools.io/?s=%SELECTION%",
+          "default": "https://dbatools.io/?s=-searchphrase-",
           "description": "Search query for dbatools.io"
         },
-        "search.stackQueryTemplate": {
+        "search.queryTemplateStackoverflow": {
           "type": "string",
-          "default": "http://stackoverflow.com/search?q=%SELECTION%",
+          "default": "http://stackoverflow.com/search?q=-searchphrase-",
           "description": "Search query for stackoverflow.com"
         }
       }
