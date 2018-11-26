@@ -27,12 +27,14 @@ function activate(context) {
   var dbatoolsdisposable = vscode.commands.registerTextEditorCommand("extension.dbatoolsSearch", dbatoolsSearch);
   var stackdisposable = vscode.commands.registerTextEditorCommand("extension.stackSearch", stackSearch);
   var duckdisposable = vscode.commands.registerTextEditorCommand("extension.duckSearch", duckSearch);
+  var thwackdisposable = vscode.commands.registerTextEditorCommand("extension.thwackSearch", thwackSearch);
 
   context.subscriptions.push(docsdisposable);
   context.subscriptions.push(googledisposable);
   context.subscriptions.push(dbatoolsdisposable);
   context.subscriptions.push(stackdisposable);
   context.subscriptions.push(duckdisposable);
+  context.subscriptions.push(thwackdisposable);
 }
 exports.activate = activate;
 
@@ -111,6 +113,21 @@ function duckSearch() {
   var search = vscode.workspace.getConfiguration("search");
   const queryTemplateDuckduckgo = search.get("queryTemplate.Duckduckgo");
   var query = queryTemplateDuckduckgo.replace("-searchphrase-", uriText);
+
+  vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(query));
+}
+
+// I don't know js, forgive me for the duplicated code
+function thwackSearch() {
+  var selectedText = GetSelectedText();
+  if (!selectedText)
+    return;
+
+  var uriText = encodeURI(selectedText);
+
+  var search = vscode.workspace.getConfiguration("search");
+  const queryTemplatethwack = search.get("queryTemplate.Thwack");
+  var query = queryTemplatethwack.replace("-searchphrase-", uriText);
 
   vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(query));
 }

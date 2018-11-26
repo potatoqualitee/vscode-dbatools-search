@@ -28,7 +28,8 @@
     "onCommand:extension.googleSearch",
     "onCommand:extension.dbatoolsSearch",
     "onCommand:extension.stackSearch",
-    "onCommand:extension.duckSearch"
+    "onCommand:extension.duckSearch",
+    "onCommand:extension.thwackSearch"
   ],
   "main": "./extension",
   "contributes": {
@@ -58,6 +59,11 @@
           "when": "editorHasSelection && config.search.show.Duckduckgo",
           "command": "extension.duckSearch",
           "group": "dbatools"
+        },
+        {
+          "when": "editorHasSelection && config.search.show.Thwack",
+          "command": "extension.thwackSearch",
+          "group": "dbatools"
         }
       ]
     },
@@ -85,6 +91,11 @@
       {
         "command": "extension.duckSearch",
         "title": "Search duckduckgo",
+        "category": "dbatools"
+      },
+      {
+        "command": "extension.thwackSearch",
+        "title": "Search thwack",
         "category": "dbatools"
       }
     ],
@@ -117,6 +128,11 @@
           "default": false,
           "description": "Enable search context for duckduckgo"
         },
+        "search.show.Thwack": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable search context for thwack"
+        },
         "search.queryTemplate.Docs": {
           "type": "string",
           "default": "https://docs.microsoft.com/en-us/search/index?search=-searchphrase-",
@@ -141,6 +157,11 @@
           "type": "string",
           "default": "https://duckduckgo.com/?ia=web&q=-searchphrase-",
           "description": "Search query for duckduckgo.com"
+        },
+        "search.queryTemplate.Thwack": {
+          "type": "string",
+          "default": "https://thwack.solarwinds.com/search.jspa?q=-searchphrase-",
+          "description": "Search query for thwack.solarwinds.com"
         }
       }
     }
