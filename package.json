@@ -27,7 +27,8 @@
     "onCommand:extension.docsSearch",
     "onCommand:extension.googleSearch",
     "onCommand:extension.dbatoolsSearch",
-    "onCommand:extension.stackSearch"
+    "onCommand:extension.stackSearch",
+    "onCommand:extension.duckSearch"
   ],
   "main": "./extension",
   "contributes": {
@@ -52,6 +53,11 @@
           "when": "editorHasSelection && config.search.show.Stackoverflow",
           "command": "extension.stackSearch",
           "group": "dbatools"
+        },
+        {
+          "when": "editorHasSelection && config.search.show.Duckduckgo",
+          "command": "extension.duckSearch",
+          "group": "dbatools"
         }
       ]
     },
@@ -74,6 +80,11 @@
       {
         "command": "extension.stackSearch",
         "title": "Search stackoverflow",
+        "category": "dbatools"
+      },
+      {
+        "command": "extension.duckSearch",
+        "title": "Search duckduckgo",
         "category": "dbatools"
       }
     ],
@@ -101,6 +112,11 @@
           "default": true,
           "description": "Enable search context for dbatools"
         },
+        "search.show.Duckduckgo": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable search context for duckduckgo"
+        },
         "search.queryTemplate.Docs": {
           "type": "string",
           "default": "https://docs.microsoft.com/en-us/search/index?search=-searchphrase-",
@@ -120,6 +136,11 @@
           "type": "string",
           "default": "http://stackoverflow.com/search?q=-searchphrase-",
           "description": "Search query for stackoverflow.com"
+        },
+        "search.queryTemplate.Duckduckgo": {
+          "type": "string",
+          "default": "https://duckduckgo.com/?ia=web&q=-searchphrase-",
+          "description": "Search query for duckduckgo.com"
         }
       }
     }
