@@ -10,7 +10,7 @@ By default, this extension allows you to search dbatools.io, microsoft docs or g
 
 ## Configuration
 
-Other search providers (well, currently just StackOverflow) are also available but disabled by default. To enable, update your settings. Here's how to do it with the GUI.
+Other search providers including Stackoverflow, Technet forums, Solarwinds Thwack and DuckDuckGo are also available but disabled by default. To enable, update your settings. Here's how to do it with the GUI.
 
 File -> Preferences -> Settings -> type `dbatools`
 
