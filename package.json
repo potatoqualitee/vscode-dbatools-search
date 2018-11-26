@@ -2,7 +2,7 @@
   "name": "search",
   "displayName": "dbatools simple search",
   "description": "search right from your code: dbatools, microsoft docs and google",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "icon": "resources/search.png",
   "publisher": "dbatools",
   "engines": {
