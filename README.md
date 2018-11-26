@@ -1,14 +1,20 @@
 # dbatools search for vs code
 
-<img align="left" src=https://blog.netnerds.net/wp-content/uploads/2016/05/dbatools.png alt="dbatools logo"> Perform a web search on dbatools.io and docs.dbatools.io of selected text using a handy context menu entry.
+Search right from your code: dbatools, microsoft docs, google and more.
 
 ## Features
 
-This dbatools extension allows you to search dbatools.io, microsoft docs or google for the highlighted text. The results are displayed in the default browser.
+By default, this extension allows you to search dbatools.io, microsoft docs or google for the highlighted text. The results are displayed in the default browser.
+
+![dbatools search](resources/search.gif)
 
 ## Configuration
 
+Other search providers (currently just StackOverflow) are also available but disabled by default. To enable, update your settings. Here's how to do it with the GUI.
+
+File -> Preferences -> Settings -> type dbatools
+
+![dbatools search](resources/settings.gif)
+
+## Issues
 If you run into any problems, please log an issue on [GitHub](https://github.com/potatoqualitee/vscode-dbatools-search/issues).
-
-
-![dbatools search](resources/search.gif)
