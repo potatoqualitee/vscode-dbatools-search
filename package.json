@@ -33,12 +33,12 @@
     "menus": {
       "editor/context": [
         {
-          "when": "editorHasSelection",
+          "when": "editorHasSelection && config.menuthings.dbaextenabled",
           "command": "extension.docsSearch",
           "group": "dbatools"
         },
         {
-          "when": "editorHasSelection",
+          "when": "editorHasSelection && config.menuthings.dbaextenabled",
           "command": "extension.googleSearch",
           "group": "dbatools"
         },
@@ -50,12 +50,12 @@
       ]
     },
     "commands": [
-	    {
+      {
         "command": "extension.docsSearch",
         "title": "Search microsoft docs",
         "category": "docs"
       },
-	    {
+      {
         "command": "extension.googleSearch",
         "title": "Search google",
         "category": "google"
@@ -70,6 +70,11 @@
       "title": "dbatools Search Configuration",
       "type": "object",
       "properties": {
+        "menuthings.dbaextenabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable search context for dbatools"
+        },
         "docsSearch.docsQueryTemplate": {
           "type": "string",
           "default": "https://docs.microsoft.com/en-us/search/index?search=%SELECTION%",
