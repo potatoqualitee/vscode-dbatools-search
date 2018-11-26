@@ -10,7 +10,11 @@ By default, this extension allows you to search dbatools.io, microsoft docs or g
 
 ## Configuration
 
-Other search providers will soon be available but disabled by default. Keep an eye out!
+Other search providers (well, currently just StackOverflow) are also available but disabled by default. To enable, update your settings. Here's how to do it with the GUI.
+
+File -> Preferences -> Settings -> type `dbatools`
+
+![dbatools search](resources/settings.gif)
 
 ## Issues
 If you run into any problems, please log an issue on [GitHub](https://github.com/potatoqualitee/vscode-dbatools-search/issues).

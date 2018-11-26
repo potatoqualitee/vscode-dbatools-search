@@ -2,7 +2,7 @@
   "name": "search",
   "displayName": "dbatools simple search",
   "description": "search right from your code: dbatools, microsoft docs and google",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "icon": "resources/search.png",
   "publisher": "dbatools",
   "engines": {
@@ -49,7 +49,7 @@
           "group": "dbatools"
         },
         {
-          "when": "editorHasSelection && config.search.showStackOverflow",
+          "when": "editorHasSelection && config.search.showStackoverflow",
           "command": "extension.stackSearch",
           "group": "dbatools"
         }
