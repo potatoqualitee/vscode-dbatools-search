@@ -25,11 +25,12 @@ function activate(context) {
   var docsdisposable = vscode.commands.registerTextEditorCommand("extension.docsSearch", docsSearch);
   var googledisposable = vscode.commands.registerTextEditorCommand("extension.googleSearch", googleSearch);
   var dbatoolsdisposable = vscode.commands.registerTextEditorCommand("extension.dbatoolsSearch", dbatoolsSearch);
-  
+  var stackdisposable = vscode.commands.registerTextEditorCommand("extension.stackSearch", stackSearch);
 
   context.subscriptions.push(docsdisposable);
   context.subscriptions.push(googledisposable);
   context.subscriptions.push(dbatoolsdisposable);
+  context.subscriptions.push(stackdisposable);
 }
 exports.activate = activate;
 
@@ -45,8 +46,8 @@ function dbatoolsSearch() {
 
   var uriText = encodeURI(selectedText);
 
-  var dbatoolsSearchCfg = vscode.workspace.getConfiguration("dbatoolsSearch");
-  const queryTemplate = dbatoolsSearchCfg.get("dbatoolsQueryTemplate");
+  var search = vscode.workspace.getConfiguration("search");
+  const queryTemplate = search.get("dbatoolsQueryTemplate");
   var query = queryTemplate.replace("%SELECTION%", uriText);
 
   vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(query));
@@ -60,8 +61,8 @@ function docsSearch() {
 
   var uriText = encodeURI(selectedText);
 
-  var docsSearchCfg = vscode.workspace.getConfiguration("docsSearch");
-  const docsQueryTemplate = docsSearchCfg.get("docsQueryTemplate");
+  var search = vscode.workspace.getConfiguration("search");
+  const docsQueryTemplate = search.get("docsQueryTemplate");
   var query = docsQueryTemplate.replace("%SELECTION%", uriText);
 
   vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(query));
@@ -75,9 +76,24 @@ function googleSearch() {
 
   var uriText = encodeURI(selectedText);
 
-  var googleSearchCfg = vscode.workspace.getConfiguration("googleSearch");
-  const googleQueryTemplate = googleSearchCfg.get("googleQueryTemplate");
+  var search = vscode.workspace.getConfiguration("search");
+  const googleQueryTemplate = search.get("googleQueryTemplate");
   var query = googleQueryTemplate.replace("%SELECTION%", uriText);
+
+  vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(query));
+}
+
+// I don't know js, forgive me for the duplicated code
+function stackSearch() {
+  var selectedText = GetSelectedText();
+  if (!selectedText)
+    return;
+
+  var uriText = encodeURI(selectedText);
+
+  var search = vscode.workspace.getConfiguration("search");
+  const stackQueryTemplate = search.get("stackQueryTemplate");
+  var query = stackQueryTemplate.replace("%SELECTION%", uriText);
 
   vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(query));
 }
