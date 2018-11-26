@@ -29,7 +29,8 @@
     "onCommand:extension.dbatoolsSearch",
     "onCommand:extension.stackSearch",
     "onCommand:extension.duckSearch",
-    "onCommand:extension.thwackSearch"
+    "onCommand:extension.thwackSearch",
+    "onCommand:extension.technetSearch"
   ],
   "main": "./extension",
   "contributes": {
@@ -64,6 +65,11 @@
           "when": "editorHasSelection && config.search.show.Thwack",
           "command": "extension.thwackSearch",
           "group": "dbatools"
+        },
+        {
+          "when": "editorHasSelection && config.search.show.Technet",
+          "command": "extension.technetSearch",
+          "group": "dbatools"
         }
       ]
     },
@@ -96,6 +102,11 @@
       {
         "command": "extension.thwackSearch",
         "title": "Search thwack",
+        "category": "dbatools"
+      },
+      {
+        "command": "extension.technetSearch",
+        "title": "Search technet",
         "category": "dbatools"
       }
     ],
@@ -133,6 +144,11 @@
           "default": false,
           "description": "Enable search context for thwack"
         },
+        "search.show.Technet": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable search context for technet"
+        },
         "search.queryTemplate.Docs": {
           "type": "string",
           "default": "https://docs.microsoft.com/en-us/search/index?search=-searchphrase-",
@@ -162,6 +178,11 @@
           "type": "string",
           "default": "https://thwack.solarwinds.com/search.jspa?q=-searchphrase-",
           "description": "Search query for thwack.solarwinds.com"
+        },
+        "search.queryTemplate.Technet": {
+          "type": "string",
+          "default": "https://social.technet.microsoft.com/Forums/en-us/home?sort=relevancedesc&brandIgnore=True&searchTerm=-searchphrase-",
+          "description": "Search query for social.technet.microsoft.com"
         }
       }
     }

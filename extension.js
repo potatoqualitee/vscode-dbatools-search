@@ -28,6 +28,7 @@ function activate(context) {
   var stackdisposable = vscode.commands.registerTextEditorCommand("extension.stackSearch", stackSearch);
   var duckdisposable = vscode.commands.registerTextEditorCommand("extension.duckSearch", duckSearch);
   var thwackdisposable = vscode.commands.registerTextEditorCommand("extension.thwackSearch", thwackSearch);
+  var technetdisposable = vscode.commands.registerTextEditorCommand("extension.technetSearch", technetSearch);
 
   context.subscriptions.push(docsdisposable);
   context.subscriptions.push(googledisposable);
@@ -35,6 +36,7 @@ function activate(context) {
   context.subscriptions.push(stackdisposable);
   context.subscriptions.push(duckdisposable);
   context.subscriptions.push(thwackdisposable);
+  context.subscriptions.push(technetdisposable);
 }
 exports.activate = activate;
 
@@ -128,6 +130,21 @@ function thwackSearch() {
   var search = vscode.workspace.getConfiguration("search");
   const queryTemplatethwack = search.get("queryTemplate.Thwack");
   var query = queryTemplatethwack.replace("-searchphrase-", uriText);
+
+  vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(query));
+}
+
+// I don't know js, forgive me for the duplicated code
+function technetSearch() {
+  var selectedText = GetSelectedText();
+  if (!selectedText)
+    return;
+
+  var uriText = encodeURI(selectedText);
+
+  var search = vscode.workspace.getConfiguration("search");
+  const queryTemplatetechnet = search.get("queryTemplate.Technet");
+  var query = queryTemplatetechnet.replace("-searchphrase-", uriText);
 
   vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(query));
 }
