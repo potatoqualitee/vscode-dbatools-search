@@ -47,7 +47,7 @@ function dbatoolsSearch() {
   var uriText = encodeURI(selectedText);
 
   var search = vscode.workspace.getConfiguration("search");
-  const queryTemplate = search.get("queryTemplateDbatools");
+  const queryTemplate = search.get("queryTemplate.dbatools");
   var query = queryTemplate.replace("-searchphrase-", uriText);
 
   vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(query));
@@ -62,7 +62,7 @@ function docsSearch() {
   var uriText = encodeURI(selectedText);
 
   var search = vscode.workspace.getConfiguration("search");
-  const queryTemplateDocs = search.get("queryTemplateDocs");
+  const queryTemplateDocs = search.get("queryTemplate.Docs");
   var query = queryTemplateDocs.replace("-searchphrase-", uriText);
 
   vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(query));
@@ -77,7 +77,7 @@ function googleSearch() {
   var uriText = encodeURI(selectedText);
 
   var search = vscode.workspace.getConfiguration("search");
-  const queryTemplateGoogle = search.get("queryTemplateGoogle");
+  const queryTemplateGoogle = search.get("queryTemplate.Google");
   var query = queryTemplateGoogle.replace("-searchphrase-", uriText);
 
   vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(query));
@@ -92,7 +92,7 @@ function stackSearch() {
   var uriText = encodeURI(selectedText);
 
   var search = vscode.workspace.getConfiguration("search");
-  const queryTemplateStackoverflow = search.get("queryTemplateStackoverflow");
+  const queryTemplateStackoverflow = search.get("queryTemplate.Stackoverflow");
   var query = queryTemplateStackoverflow.replace("-searchphrase-", uriText);
 
   vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(query));
