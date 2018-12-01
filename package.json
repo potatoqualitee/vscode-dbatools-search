@@ -2,7 +2,7 @@
   "name": "search",
   "displayName": "search from code",
   "description": "search right from your code: dbatools, microsoft docs, google and more. formerly dbatools simple search.",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "icon": "resources/search.png",
   "publisher": "dbatools",
   "engines": {
@@ -24,36 +24,26 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.docsSearch",
-    "onCommand:extension.googleSearch",
     "onCommand:extension.dbatoolsSearch",
-    "onCommand:extension.stackSearch",
+    "onCommand:extension.docsSearch",
     "onCommand:extension.duckSearch",
-    "onCommand:extension.thwackSearch",
-    "onCommand:extension.technetSearch"
+    "onCommand:extension.googleSearch",
+    "onCommand:extension.stackSearch",
+    "onCommand:extension.technetSearch",
+    "onCommand:extension.thwackSearch"
   ],
   "main": "./extension",
   "contributes": {
     "menus": {
       "editor/context": [
         {
-          "when": "editorHasSelection && config.search.show.docs",
-          "command": "extension.docsSearch",
-          "group": "dbatools"
-        },
-        {
-          "when": "editorHasSelection && config.search.show.Google",
-          "command": "extension.googleSearch",
-          "group": "dbatools"
-        },
-        {
           "when": "editorHasSelection && config.search.show.dbatools",
           "command": "extension.dbatoolsSearch",
           "group": "dbatools"
         },
         {
-          "when": "editorHasSelection && config.search.show.Stackoverflow",
-          "command": "extension.stackSearch",
+          "when": "editorHasSelection && config.search.show.docs",
+          "command": "extension.docsSearch",
           "group": "dbatools"
         },
         {
@@ -62,37 +52,37 @@
           "group": "dbatools"
         },
         {
-          "when": "editorHasSelection && config.search.show.Thwack",
-          "command": "extension.thwackSearch",
+          "when": "editorHasSelection && config.search.show.Google",
+          "command": "extension.googleSearch",
+          "group": "dbatools"
+        },
+        {
+          "when": "editorHasSelection && config.search.show.Stackoverflow",
+          "command": "extension.stackSearch",
           "group": "dbatools"
         },
         {
           "when": "editorHasSelection && config.search.show.Technet",
           "command": "extension.technetSearch",
           "group": "dbatools"
+        },
+        {
+          "when": "editorHasSelection && config.search.show.Thwack",
+          "command": "extension.thwackSearch",
+          "group": "dbatools"
         }
       ]
     },
     "commands": [
-      {
-        "command": "extension.docsSearch",
-        "title": "Search microsoft docs",
-        "category": "docs"
-      },
-      {
-        "command": "extension.googleSearch",
-        "title": "Search google",
-        "category": "google"
-      },
       {
         "command": "extension.dbatoolsSearch",
         "title": "Search dbatools",
         "category": "dbatools"
       },
       {
-        "command": "extension.stackSearch",
-        "title": "Search stackoverflow",
-        "category": "dbatools"
+        "command": "extension.docsSearch",
+        "title": "Search microsoft docs",
+        "category": "docs"
       },
       {
         "command": "extension.duckSearch",
@@ -100,13 +90,23 @@
         "category": "dbatools"
       },
       {
-        "command": "extension.thwackSearch",
-        "title": "Search thwack",
+        "command": "extension.googleSearch",
+        "title": "Search google",
+        "category": "google"
+      },
+      {
+        "command": "extension.stackSearch",
+        "title": "Search stackoverflow",
         "category": "dbatools"
       },
       {
         "command": "extension.technetSearch",
         "title": "Search technet",
+        "category": "dbatools"
+      },
+      {
+        "command": "extension.thwackSearch",
+        "title": "Search thwack",
         "category": "dbatools"
       }
     ],
@@ -114,75 +114,75 @@
       "title": "dbatools Search Configuration",
       "type": "object",
       "properties": {
-        "search.show.Stackoverflow": {
-          "type": "boolean",
-          "default": false,
-          "description": "Enable search context for stackoverflow"
-        },
-        "search.show.Google": {
-          "type": "boolean",
-          "default": true,
-          "description": "Enable search context for google"
-        },
-        "search.show.docs": {
-          "type": "boolean",
-          "default": true,
-          "description": "Enable search context for docs"
-        },
-        "search.show.dbatools": {
-          "type": "boolean",
-          "default": true,
-          "description": "Enable search context for dbatools"
-        },
-        "search.show.Duckduckgo": {
-          "type": "boolean",
-          "default": false,
-          "description": "Enable search context for duckduckgo"
-        },
-        "search.show.Thwack": {
-          "type": "boolean",
-          "default": false,
-          "description": "Enable search context for thwack"
-        },
-        "search.show.Technet": {
-          "type": "boolean",
-          "default": false,
-          "description": "Enable search context for technet"
-        },
         "search.queryTemplate.Docs": {
           "type": "string",
           "default": "https://docs.microsoft.com/en-us/search/index?search=-searchphrase-",
           "description": "Search query for docs.microsoft.com"
-        },
-        "search.queryTemplate.Google": {
-          "type": "string",
-          "default": "https://www.google.com/search?q=-searchphrase-",
-          "description": "Search query for google.com"
-        },
-        "search.queryTemplate.dbatools": {
-          "type": "string",
-          "default": "https://dbatools.io/?s=-searchphrase-",
-          "description": "Search query for dbatools.io"
-        },
-        "search.queryTemplate.Stackoverflow": {
-          "type": "string",
-          "default": "http://stackoverflow.com/search?q=-searchphrase-",
-          "description": "Search query for stackoverflow.com"
         },
         "search.queryTemplate.Duckduckgo": {
           "type": "string",
           "default": "https://duckduckgo.com/?ia=web&q=-searchphrase-",
           "description": "Search query for duckduckgo.com"
         },
-        "search.queryTemplate.Thwack": {
+        "search.queryTemplate.Google": {
           "type": "string",
-          "default": "https://thwack.solarwinds.com/search.jspa?q=-searchphrase-",
-          "description": "Search query for thwack.solarwinds.com"
+          "default": "https://www.google.com/search?q=-searchphrase-",
+          "description": "Search query for google.com"
+        },
+        "search.queryTemplate.Stackoverflow": {
+          "type": "string",
+          "default": "http://stackoverflow.com/search?q=-searchphrase-",
+          "description": "Search query for stackoverflow.com"
         },
         "search.queryTemplate.Technet": {
           "type": "string",
           "default": "https://social.technet.microsoft.com/Forums/en-us/home?sort=relevancedesc&brandIgnore=True&searchTerm=-searchphrase-",
           "description": "Search query for social.technet.microsoft.com"
+        },
+        "search.queryTemplate.Thwack": {
+          "type": "string",
+          "default": "https://thwack.solarwinds.com/search.jspa?q=-searchphrase-",
+          "description": "Search query for thwack.solarwinds.com"
+        },
+        "search.show.dbatools": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable search context for dbatools"
+        },
+        "search.show.docs": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable search context for docs"
+        },
+        "search.show.Duckduckgo": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable search context for duckduckgo"
+        },
+        "search.show.Google": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable search context for google"
+        },
+        "search.show.Stackoverflow": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable search context for stackoverflow"
+        },
+        "search.show.Technet": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable search context for technet"
+        },
+        "search.show.Thwack": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable search context for thwack"
+        },
+        "search.queryTemplate.dbatools": {
+          "type": "string",
+          "default": "https://dbatools.io/?s=-searchphrase-",
+          "description": "Search query for dbatools.io"
         }
       }
     }
