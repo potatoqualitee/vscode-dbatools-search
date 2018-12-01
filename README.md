@@ -1,4 +1,4 @@
-# dbatools search for vs code
+# search from code for vs code
 
 Search right from your code: dbatools, microsoft docs, google and more.
 
