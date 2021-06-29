@@ -1,34 +1,34 @@
 import * as vscode from 'vscode';
 import { searcher } from './utils';
 
-export function activate(context: vscode.ExtensionContext) {  
+export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.docsSearch", () => {
 		searcher("Docs");
-	  }));
-	context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.googleSearch",() => {
+	}));
+	context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.googleSearch", () => {
 		searcher("Google");
-	  }));
-	context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.dbatoolsSearch",() => {
+	}));
+	context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.dbatoolsSearch", () => {
 		searcher("dbatools");
-	  }));
-	context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.stackSearch",() => {
+	}));
+	context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.stackSearch", () => {
 		searcher("Stackoverflow");
-	  }));
-	context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.duckSearch",() => {
+	}));
+	context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.duckSearch", () => {
 		searcher("Duckduckgo");
-	  }));
-	context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.thwackSearch",() => {
+	}));
+	context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.thwackSearch", () => {
 		searcher("Thwack");
-	  }));
+	}));
 	context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.technetSearch", () => {
 		searcher("Technet");
-	  }));
+	}));
 	context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.vscodeApiSearch", () => {
 		searcher("VSCodeAPI");
-	  }));
-	context.subscriptions.push(vscode.commands.registerCommand('extension.vscodeWorkspaceSearch', () => {
-		vscode.commands.executeCommand('workbench.action.findInFiles');
+	}));
+	context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.vscodeWorkspaceSearch", () => {
+		searcher("VSCodeWorkbench");
 	}));
 }
 
-export function deactivate() {}
+export function deactivate() { }
