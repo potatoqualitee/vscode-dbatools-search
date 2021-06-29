@@ -2,7 +2,7 @@
 	"name": "search",
 	"displayName": "search from code",
 	"description": "search right from your code: dbatools, microsoft docs, google and more.",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"icon": "resources/search.png",
 	"publisher": "dbatools",
 	"license": "MIT",
@@ -138,11 +138,6 @@
 					"default": "https://docs.microsoft.com/en-us/search/index?search=-searchphrase-",
 					"description": "Search query for docs.microsoft.com"
 				},
-				"search.queryTemplate.VSCodeAPI": {
-					"type": "string",
-					"default": "https://code.visualstudio.com/Search?q=-searchphrase-",
-					"description": "Search query for code.visualstudio.com"
-				},
 				"search.queryTemplate.Duckduckgo": {
 					"type": "string",
 					"default": "https://duckduckgo.com/?ia=web&q=-searchphrase-",
@@ -168,20 +163,15 @@
 					"default": "https://thwack.solarwinds.com/search.jspa?q=-searchphrase-",
 					"description": "Search query for thwack.solarwinds.com"
 				},
+				"search.queryTemplate.VSCodeAPI": {
+					"type": "string",
+					"default": "https://code.visualstudio.com/Search?q=-searchphrase-",
+					"description": "Search query for code.visualstudio.com"
+				},
 				"search.show.dbatools": {
 					"type": "boolean",
 					"default": true,
 					"description": "Enable search context for dbatools"
-				},
-				"search.show.VSCodeWorkspace": {
-					"type": "boolean",
-					"default": true,
-					"description": "Enable search context for VS Code Workspace"
-				},
-				"search.show.VSCodeAPI": {
-					"type": "boolean",
-					"default": false,
-					"description": "Enable search context for VS Code API"
 				},
 				"search.show.docs": {
 					"type": "boolean",
@@ -212,6 +202,16 @@
 					"type": "boolean",
 					"default": false,
 					"description": "Enable search context for thwack"
+				},
+				"search.show.VSCodeAPI": {
+					"type": "boolean",
+					"default": false,
+					"description": "Enable search context for VS Code API"
+				},
+				"search.show.VSCodeWorkspace": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enable search context for VS Code Workspace"
 				}
 			}
 		}
