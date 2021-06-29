@@ -5,6 +5,7 @@
 	"version": "2.0.0",
 	"icon": "resources/search.png",
 	"publisher": "dbatools",
+	"license": "MIT",
 	"engines": {
 		"vscode": "^1.57.0"
 	},
