@@ -1,12 +1,14 @@
 # search from code for vs code
 
-Search right from your code: dbatools, microsoft docs, google and more.
+Search right from your code: dbatools, microsoft docs, google, vs code workspace (find in files) and more.
 
 ## Features
 
-By default, this extension allows you to search dbatools.io, microsoft docs or google for the highlighted text. The results are displayed in the default browser.
+By default, this extension allows you to search dbatools.io, microsoft docs, google or your VS Code workspace (find in files) for the highlighted text. The results are displayed in the default browser.
 
 ![dbatools search](resources/search.gif)
+
+The gif doesn't show it, but this extension can figure out the word selection based on cursor position, so you don't have to explicitly select your text.
 
 ## Configuration
 
