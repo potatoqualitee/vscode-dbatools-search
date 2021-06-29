@@ -1,29 +1,29 @@
 {
 	"name": "search",
-	  "displayName": "search from code",
-	  "description": "search right from your code: dbatools, microsoft docs, google and more.",
-	  "version": "2.0.0",
-	  "icon": "resources/search.png",
-	  "publisher": "dbatools",
-	  "engines": {
-		  "vscode": "^1.57.0"
-	  },
-	  "author": {
+	"displayName": "search from code",
+	"description": "search right from your code: dbatools, microsoft docs, google and more.",
+	"version": "2.0.0",
+	"icon": "resources/search.png",
+	"publisher": "dbatools",
+	"engines": {
+		"vscode": "^1.57.0"
+	},
+	"author": {
 		"name": "Chrissy LeMaire",
 		"url": "https://github.com/potatoqualitee"
-	  },
-	  "homepage": "https://github.com/potatoqualitee/vscode-dbatools-search",
-	  "repository": {
+	},
+	"homepage": "https://github.com/potatoqualitee/vscode-dbatools-search",
+	"repository": {
 		"type": "git",
 		"url": "https://github.com/potatoqualitee/vscode-dbatools-search.git"
-	  },
-	  "bugs": {
+	},
+	"bugs": {
 		"url": "https://github.com/potatoqualitee/vscode-dbatools-search/issues"
-	  },
-	  "categories": [
+	},
+	"categories": [
 		"Other"
-	  ],
-	  "activationEvents": [
+	],
+	"activationEvents": [
 		"onCommand:extension.dbatoolsSearch",
 		"onCommand:extension.docsSearch",
 		"onCommand:extension.duckSearch",
@@ -33,213 +33,213 @@
 		"onCommand:extension.thwackSearch",
 		"onCommand:extension.vscodeApiSearch",
 		"onCommand:extension.vscodeWorkspaceSearch"
-	  ],
-	  "main": "./dist/extension.js",
-	  "contributes": {
+	],
+	"main": "./dist/extension.js",
+	"contributes": {
 		"menus": {
-		  "editor/context": [
-			{
-			  "when": "editorHasSelection && config.search.show.dbatools",
-			  "command": "extension.dbatoolsSearch",
-			  "group": "dbatools"
-			},
-			{
-			  "when": "editorHasSelection && config.search.show.docs",
-			  "command": "extension.docsSearch",
-			  "group": "dbatools"
-			},
-			{
-			  "when": "editorHasSelection && config.search.show.Duckduckgo",
-			  "command": "extension.duckSearch",
-			  "group": "dbatools"
-			},
-			{
-			  "when": "editorHasSelection && config.search.show.Google",
-			  "command": "extension.googleSearch",
-			  "group": "dbatools"
-			},
-			{
-			  "when": "editorHasSelection && config.search.show.Stackoverflow",
-			  "command": "extension.stackSearch",
-			  "group": "dbatools"
-			},
-			{
-			  "when": "editorHasSelection && config.search.show.Technet",
-			  "command": "extension.technetSearch",
-			  "group": "dbatools"
-			},
-			{
-			  "when": "editorHasSelection && config.search.show.Thwack",
-			  "command": "extension.thwackSearch",
-			  "group": "dbatools"
-			},
-			{
-			  "when": "editorHasSelection && config.search.show.VSCodeAPI",
-			  "command": "extension.vscodeApiSearch",
-			  "group": "dbatools"
-			},
-			{
-			  "when": "editorHasSelection && config.search.show.VSCodeWorkspace",
-			  "command": "extension.vscodeWorkspaceSearch",
-			  "group": "dbatools"
-			}
-		  ]
+			"editor/context": [
+				{
+					"when": "config.search.show.dbatools",
+					"command": "extension.dbatoolsSearch",
+					"group": "dbatools"
+				},
+				{
+					"when": "config.search.show.docs",
+					"command": "extension.docsSearch",
+					"group": "dbatools"
+				},
+				{
+					"when": "config.search.show.Duckduckgo",
+					"command": "extension.duckSearch",
+					"group": "dbatools"
+				},
+				{
+					"when": "config.search.show.Google",
+					"command": "extension.googleSearch",
+					"group": "dbatools"
+				},
+				{
+					"when": "config.search.show.Stackoverflow",
+					"command": "extension.stackSearch",
+					"group": "dbatools"
+				},
+				{
+					"when": "config.search.show.Technet",
+					"command": "extension.technetSearch",
+					"group": "dbatools"
+				},
+				{
+					"when": "config.search.show.Thwack",
+					"command": "extension.thwackSearch",
+					"group": "dbatools"
+				},
+				{
+					"when": "config.search.show.VSCodeAPI",
+					"command": "extension.vscodeApiSearch",
+					"group": "dbatools"
+				},
+				{
+					"when": "config.search.show.VSCodeWorkspace",
+					"command": "extension.vscodeWorkspaceSearch",
+					"group": "dbatools"
+				}
+			]
 		},
 		"commands": [
-		  {
-			"command": "extension.dbatoolsSearch",
-			"title": "Search dbatools"
-		  },
-		  {
-			"command": "extension.docsSearch",
-			"title": "Search microsoft docs"
-		  },
-		  {
-			"command": "extension.duckSearch",
-			"title": "Search duckduckgo"
-		  },
-		  {
-			"command": "extension.googleSearch",
-			"title": "Search google"
-		  },
-		  {
-			"command": "extension.stackSearch",
-			"title": "Search stackoverflow"
-		  },
-		  {
-			"command": "extension.technetSearch",
-			"title": "Search technet"
-		  },
-		  {
-			"command": "extension.thwackSearch",
-			"title": "Search thwack"
-		  },
-		  {
-			"command": "extension.vscodeApiSearch",
-			"title": "Search vs code api"
-		  },
-		  {
-			"command": "extension.vscodeWorkspaceSearch",
-			"title": "Search this workspace"
-		  }
+			{
+				"command": "extension.dbatoolsSearch",
+				"title": "Search dbatools"
+			},
+			{
+				"command": "extension.docsSearch",
+				"title": "Search microsoft docs"
+			},
+			{
+				"command": "extension.duckSearch",
+				"title": "Search duckduckgo"
+			},
+			{
+				"command": "extension.googleSearch",
+				"title": "Search google"
+			},
+			{
+				"command": "extension.stackSearch",
+				"title": "Search stackoverflow"
+			},
+			{
+				"command": "extension.technetSearch",
+				"title": "Search technet"
+			},
+			{
+				"command": "extension.thwackSearch",
+				"title": "Search thwack"
+			},
+			{
+				"command": "extension.vscodeApiSearch",
+				"title": "Search vs code api"
+			},
+			{
+				"command": "extension.vscodeWorkspaceSearch",
+				"title": "Search this workspace"
+			}
 		],
 		"configuration": {
-		  "title": "dbatools Search Configuration",
-		  "type": "object",
-		  "properties": {
-			 "search.queryTemplate.dbatools": {
-			   "type": "string",
-			   "default": "https://www.google.com/search?q=site:dbatools.io+OR+site:docs.dbatools.io+-searchphrase-",
-			   "description": "Search query for dbatools.io"
-			},
-			"search.queryTemplate.Docs": {
-			  "type": "string",
-			  "default": "https://docs.microsoft.com/en-us/search/index?search=-searchphrase-",
-			  "description": "Search query for docs.microsoft.com"
-			},
-			"search.queryTemplate.VSCodeAPI": {
-			  "type": "string",
-			  "default": "https://code.visualstudio.com/Search?q=-searchphrase-",
-			  "description": "Search query for code.visualstudio.com"
-			},
-			"search.queryTemplate.Duckduckgo": {
-			  "type": "string",
-			  "default": "https://duckduckgo.com/?ia=web&q=-searchphrase-",
-			  "description": "Search query for duckduckgo.com"
-			},
-			"search.queryTemplate.Google": {
-			  "type": "string",
-			  "default": "https://www.google.com/search?q=-searchphrase-",
-			  "description": "Search query for google.com"
-			},
-			"search.queryTemplate.Stackoverflow": {
-			  "type": "string",
-			  "default": "http://stackoverflow.com/search?q=-searchphrase-",
-			  "description": "Search query for stackoverflow.com"
-			},
-			"search.queryTemplate.Technet": {
-			  "type": "string",
-			  "default": "https://social.technet.microsoft.com/Forums/en-us/home?sort=relevancedesc&brandIgnore=True&searchTerm=-searchphrase-",
-			  "description": "Search query for social.technet.microsoft.com"
-			},
-			"search.queryTemplate.Thwack": {
-			  "type": "string",
-			  "default": "https://thwack.solarwinds.com/search.jspa?q=-searchphrase-",
-			  "description": "Search query for thwack.solarwinds.com"
-			},
-			"search.show.dbatools": {
-			  "type": "boolean",
-			  "default": true,
-			  "description": "Enable search context for dbatools"
-			},
-			"search.show.VSCodeWorkspace": {
-			  "type": "boolean",
-			  "default": true,
-			  "description": "Enable search context for VS Code Workspace"
-			},
-			"search.show.VSCodeAPI": {
-			  "type": "boolean",
-			  "default": false,
-			  "description": "Enable search context for VS Code API"
-			},
-			"search.show.docs": {
-			  "type": "boolean",
-			  "default": true,
-			  "description": "Enable search context for docs.microsoft.com"
-			},
-			"search.show.Duckduckgo": {
-			  "type": "boolean",
-			  "default": false,
-			  "description": "Enable search context for duckduckgo"
-			},
-			"search.show.Google": {
-			  "type": "boolean",
-			  "default": true,
-			  "description": "Enable search context for google"
-			},
-			"search.show.Stackoverflow": {
-			  "type": "boolean",
-			  "default": false,
-			  "description": "Enable search context for stackoverflow"
-			},
-			"search.show.Technet": {
-			  "type": "boolean",
-			  "default": false,
-			  "description": "Enable search context for technet"
-			},
-			"search.show.Thwack": {
-			  "type": "boolean",
-			  "default": false,
-			  "description": "Enable search context for thwack"
+			"title": "dbatools Search Configuration",
+			"type": "object",
+			"properties": {
+				"search.queryTemplate.dbatools": {
+					"type": "string",
+					"default": "https://www.google.com/search?q=site:dbatools.io+OR+site:docs.dbatools.io+-searchphrase-",
+					"description": "Search query for dbatools.io"
+				},
+				"search.queryTemplate.Docs": {
+					"type": "string",
+					"default": "https://docs.microsoft.com/en-us/search/index?search=-searchphrase-",
+					"description": "Search query for docs.microsoft.com"
+				},
+				"search.queryTemplate.VSCodeAPI": {
+					"type": "string",
+					"default": "https://code.visualstudio.com/Search?q=-searchphrase-",
+					"description": "Search query for code.visualstudio.com"
+				},
+				"search.queryTemplate.Duckduckgo": {
+					"type": "string",
+					"default": "https://duckduckgo.com/?ia=web&q=-searchphrase-",
+					"description": "Search query for duckduckgo.com"
+				},
+				"search.queryTemplate.Google": {
+					"type": "string",
+					"default": "https://www.google.com/search?q=-searchphrase-",
+					"description": "Search query for google.com"
+				},
+				"search.queryTemplate.Stackoverflow": {
+					"type": "string",
+					"default": "http://stackoverflow.com/search?q=-searchphrase-",
+					"description": "Search query for stackoverflow.com"
+				},
+				"search.queryTemplate.Technet": {
+					"type": "string",
+					"default": "https://social.technet.microsoft.com/Forums/en-us/home?sort=relevancedesc&brandIgnore=True&searchTerm=-searchphrase-",
+					"description": "Search query for social.technet.microsoft.com"
+				},
+				"search.queryTemplate.Thwack": {
+					"type": "string",
+					"default": "https://thwack.solarwinds.com/search.jspa?q=-searchphrase-",
+					"description": "Search query for thwack.solarwinds.com"
+				},
+				"search.show.dbatools": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enable search context for dbatools"
+				},
+				"search.show.VSCodeWorkspace": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enable search context for VS Code Workspace"
+				},
+				"search.show.VSCodeAPI": {
+					"type": "boolean",
+					"default": false,
+					"description": "Enable search context for VS Code API"
+				},
+				"search.show.docs": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enable search context for docs.microsoft.com"
+				},
+				"search.show.Duckduckgo": {
+					"type": "boolean",
+					"default": false,
+					"description": "Enable search context for duckduckgo"
+				},
+				"search.show.Google": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enable search context for google"
+				},
+				"search.show.Stackoverflow": {
+					"type": "boolean",
+					"default": false,
+					"description": "Enable search context for stackoverflow"
+				},
+				"search.show.Technet": {
+					"type": "boolean",
+					"default": false,
+					"description": "Enable search context for technet"
+				},
+				"search.show.Thwack": {
+					"type": "boolean",
+					"default": false,
+					"description": "Enable search context for thwack"
+				}
 			}
-		  }
 		}
-	  },
-	  "scripts": {
-		  "vscode:prepublish": "yarn run package",
-		  "compile": "webpack",
-		  "watch": "webpack --watch",
-		  "package": "webpack --mode production --devtool hidden-source-map",
-		  "test-compile": "tsc -p ./",
-		  "test-watch": "tsc -watch -p ./",
-		  "pretest": "yarn run test-compile && yarn run lint",
-		  "lint": "eslint src --ext ts",
-		  "test": "node ./out/test/runTest.js"
-	  },
-	  "devDependencies": {
-		  "@types/vscode": "^1.57.0",
-		  "@types/glob": "^7.1.3",
-		  "@types/mocha": "^8.2.2",
-		  "@types/node": "14.x",
-		  "eslint": "^7.27.0",
-		  "@typescript-eslint/eslint-plugin": "^4.26.0",
-		  "@typescript-eslint/parser": "^4.26.0",
-		  "glob": "^7.1.7",
-		  "mocha": "^8.4.0",
-		  "typescript": "^4.3.2",
-		  "vscode-test": "^1.5.2",
-		  "ts-loader": "^9.2.2",
-		  "webpack": "^5.38.1",
-		  "webpack-cli": "^4.7.0"
-	  }
-  }  
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run package",
+		"compile": "webpack",
+		"watch": "webpack --watch",
+		"package": "webpack --mode production --devtool hidden-source-map",
+		"test-compile": "tsc -p ./",
+		"test-watch": "tsc -watch -p ./",
+		"pretest": "yarn run test-compile && yarn run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.57.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.2.2",
+		"@types/node": "14.x",
+		"eslint": "^7.27.0",
+		"@typescript-eslint/eslint-plugin": "^4.26.0",
+		"@typescript-eslint/parser": "^4.26.0",
+		"glob": "^7.1.7",
+		"mocha": "^8.4.0",
+		"typescript": "^4.3.2",
+		"vscode-test": "^1.5.2",
+		"ts-loader": "^9.2.2",
+		"webpack": "^5.38.1",
+		"webpack-cli": "^4.7.0"
+	}
+}
