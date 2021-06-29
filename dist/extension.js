@@ -66,6 +66,7 @@ function getSelectedText() {
         let cursorPosition = activeEditor.selection.start;
         let wordRange = activeEditor.document.getWordRangeAtPosition(cursorPosition);
         let highlight = activeEditor.document.getText(wordRange);
+        console.debug(`no explicitly selected text. highlighted on ${highlight}`);
         return highlight;
     }
     const documentText = activeEditor.document.getText();

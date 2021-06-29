@@ -9,6 +9,9 @@ export function getSelectedText(): string {
 		let cursorPosition = activeEditor!.selection.start;
 		let wordRange = activeEditor!.document.getWordRangeAtPosition(cursorPosition);
 		let highlight = activeEditor!.document.getText(wordRange);
+
+		console.debug(`no explicitly selected text. highlighted on ${highlight}`);
+
 		return highlight;
 	}
 
@@ -24,5 +27,6 @@ export function getSelectedText(): string {
 	var selectedText = documentText.slice(selStartOffset, selEndOffset).trim();
 	selectedText = selectedText.replace(/\s\s+/g, ' ');
 	console.debug(`selected text is ${selectedText}`);
+
 	return selectedText;
 }
