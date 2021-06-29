@@ -1,6 +1,12 @@
 # Change Log
 
-All notable changes to the "search" extension will be documented in this file.
+All notable changes to the "search" extension are documented in this file.
+
+## [2.0.1]
+
+- Changed logo
+- Fixed bug that would just open search but not set the word to search for, if the person hadn't explicitly selected the word and just hovered
+- Reordered configs to be alphabetical
 
 ## [2.0.0]
 
