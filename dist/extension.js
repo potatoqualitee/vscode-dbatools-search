@@ -5,7 +5,7 @@
 /* 1 */
 /***/ ((module) => {
 
-module.exports = require("vscode");;
+module.exports = require("vscode");
 
 /***/ }),
 /* 2 */
@@ -61,18 +61,16 @@ exports.getSelectedText = void 0;
 const vscode = __webpack_require__(1);
 function getSelectedText() {
     const activeEditor = vscode.window.activeTextEditor;
-    if (!activeEditor) {
-        console.debug("no active editor");
-        return '';
+    const activeSelection = activeEditor.selection;
+    if (activeSelection.isEmpty) {
+        let cursorPosition = activeEditor.selection.start;
+        let wordRange = activeEditor.document.getWordRangeAtPosition(cursorPosition);
+        let highlight = activeEditor.document.getText(wordRange);
+        return highlight;
     }
     const documentText = activeEditor.document.getText();
     if (!documentText) {
         console.debug("bailed on getText");
-        return '';
-    }
-    var activeSelection = activeEditor.selection;
-    if (activeSelection.isEmpty) {
-        console.debug("bailed on selection");
         return '';
     }
     const selStartOffset = activeEditor.document.offsetAt(activeSelection.start);

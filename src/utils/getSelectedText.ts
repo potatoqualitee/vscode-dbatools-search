@@ -3,18 +3,13 @@ import * as vscode from 'vscode';
 
 export function getSelectedText(): string {
 	const activeEditor = vscode.window.activeTextEditor;
+	const activeSelection = activeEditor!.selection;
 
-	var activeSelection = activeEditor!.selection;
 	if (activeSelection.isEmpty) {
 		let cursorPosition = activeEditor!.selection.start;
 		let wordRange = activeEditor!.document.getWordRangeAtPosition(cursorPosition);
 		let highlight = activeEditor!.document.getText(wordRange);
 		return highlight;
-	}
-
-	if (!activeEditor) {
-		console.debug("no active editor");
-		return '';
 	}
 
 	const documentText = activeEditor!.document.getText();
