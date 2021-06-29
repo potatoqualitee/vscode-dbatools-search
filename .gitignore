@@ -1,3 +1,5 @@
 node_modules
 test
+dist
 *.vsix
+package-lock.json
