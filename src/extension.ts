@@ -29,6 +29,9 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.vscodeWorkspaceSearch", () => {
 		searcher("VSCodeWorkbench");
 	}));
+	context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.chatGptSearch", () => {
+		searcher("ChatGPT");
+	}));
 }
 
 export function deactivate() { }

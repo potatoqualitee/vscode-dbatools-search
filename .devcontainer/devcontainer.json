@@ -1,0 +1,24 @@
+{
+    "name": "VSCode Extension Development",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "ms-vscode.vscode-typescript-next"
+            ],
+            "settings": {
+                "typescript.tsdk": "node_modules/typescript/lib",
+                "editor.formatOnSave": true,
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
+                "files.eol": "\n"
+            }
+        }
+    },
+    "forwardPorts": [],
+    "postCreateCommand": "npm install",
+    "remoteUser": "node"
+}
