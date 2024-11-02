@@ -87,31 +87,31 @@
 			},
 			{
 				"command": "extension.docsSearch",
-				"title": "Search microsoft docs"
+				"title": "Search Microsoft Docs"
 			},
 			{
 				"command": "extension.duckSearch",
-				"title": "Search duckduckgo"
+				"title": "Search DuckDuckGo"
 			},
 			{
 				"command": "extension.googleSearch",
-				"title": "Search google"
+				"title": "Search Google"
 			},
 			{
 				"command": "extension.stackSearch",
-				"title": "Search stackoverflow"
+				"title": "Search StackOverflow"
 			},
 			{
 				"command": "extension.technetSearch",
-				"title": "Search technet"
+				"title": "Search Microsoft Q&A"
 			},
 			{
 				"command": "extension.thwackSearch",
-				"title": "Search thwack"
+				"title": "Search Thwack"
 			},
 			{
 				"command": "extension.vscodeApiSearch",
-				"title": "Search vs code api"
+				"title": "Search VS Code API"
 			},
 			{
 				"command": "extension.vscodeWorkspaceSearch",
@@ -225,15 +225,13 @@
 		}
 	},
 	"scripts": {
-		"vscode:prepublish": "yarn run package",
-		"compile": "webpack",
-		"watch": "webpack --watch",
-		"package": "webpack --mode production --devtool hidden-source-map",
-		"test-compile": "tsc -p ./",
-		"test-watch": "tsc -watch -p ./",
-		"pretest": "yarn run test-compile && yarn run lint",
-		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js"
+		"check-types": "tsc --noEmit",
+		"compile": "npm run check-types && node esbuild.js",
+		"package": "npm run check-types && node esbuild.js --production",
+		"vscode:prepublish": "npm run package",
+		"watch": "npm-run-all -p watch:*",
+		"watch:esbuild": "node esbuild.js --watch",
+		"watch:tsc": "tsc --noEmit --watch --project tsconfig.json"
 	},
 	"devDependencies": {
 		"@types/glob": "^8.1.0",
@@ -242,6 +240,7 @@
 		"@types/vscode": "^1.95.0",
 		"@typescript-eslint/eslint-plugin": "^8.12.2",
 		"@typescript-eslint/parser": "^8.12.2",
+		"esbuild": "^0.24.0",
 		"eslint": "^9.14.0",
 		"glob": "^11.0.0",
 		"mocha": "^10.8.2",

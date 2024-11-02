@@ -19,6 +19,6 @@
         }
     },
     "forwardPorts": [],
-    "postCreateCommand": "yarn install",
+    "postCreateCommand": "npm install",
     "remoteUser": "node"
 }
