@@ -2,6 +2,10 @@
 
 All notable changes to the "search" extension are documented in this file.
 
+## [2.1.0]
+
+- Added ChatGPT search functionality
+
 ## [2.0.1]
 
 - Changed logo

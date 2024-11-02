@@ -2,7 +2,7 @@
 	"name": "search",
 	"displayName": "search from code",
 	"description": "Search right from your code: dbatools, ChatGPT, Microsoft Learn, Google, VS Code workspace (Find in files) and more.",
-	"version": "2.0.5",
+	"version": "2.1.0",
 	"icon": "resources/search.png",
 	"publisher": "dbatools",
 	"license": "MIT",
