@@ -4,7 +4,7 @@ Search right from your code: dbatools, microsoft docs, google, vs code workspace
 
 ## Features
 
-By default, this extension allows you to search dbatools.io, microsoft docs, google or your VS Code workspace for the highlighted text. The results are displayed in the default browser.
+By default, this extension allows you to search dbatools.io, Microsoft Docs, Google, ChatGPT or your VS Code workspace for the highlighted text. The results are displayed in the default browser.
 
 ![dbatools search](resources/search.gif)
 

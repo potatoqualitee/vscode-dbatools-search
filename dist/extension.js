@@ -1,1 +1,171 @@
-(()=>{"use strict";var e={160:(e,t,o)=>{Object.defineProperty(t,"__esModule",{value:!0}),t.getSelectedText=void 0;const r=o(549);t.getSelectedText=function(){const e=r.window.activeTextEditor,t=e.selection;if(t.isEmpty){let t=e.selection.start,o=e.document.getWordRangeAtPosition(t),r=e.document.getText(o);return console.debug(`no explicitly selected text. highlighted on ${r}`),r}const o=e.document.getText();if(!o)return console.debug("bailed on getText"),"";const s=e.document.offsetAt(t.start),n=e.document.offsetAt(t.end);var c=o.slice(s,n).trim();return c=c.replace(/\s\s+/g," "),console.debug(`selected text is ${c}`),c}},928:function(e,t,o){var r=this&&this.__createBinding||(Object.create?function(e,t,o,r){void 0===r&&(r=o),Object.defineProperty(e,r,{enumerable:!0,get:function(){return t[o]}})}:function(e,t,o,r){void 0===r&&(r=o),e[r]=t[o]}),s=this&&this.__exportStar||function(e,t){for(var o in e)"default"===o||Object.prototype.hasOwnProperty.call(t,o)||r(t,e,o)};Object.defineProperty(t,"__esModule",{value:!0}),s(o(125),t)},125:(e,t,o)=>{Object.defineProperty(t,"__esModule",{value:!0}),t.searcher=void 0;const r=o(549),s=o(160);t.searcher=function(e){var t=s.getSelectedText();if("VSCodeWorkbench"===e)r.commands.executeCommand("workbench.action.findInFiles",{query:t,triggerSearch:!0});else{if(!t)return;var o=encodeURI(t);const s=r.workspace.getConfiguration("search").get(`queryTemplate.${e}`);var n=s.replace("-searchphrase-",o);console.debug(`query is ${s}`),r.commands.executeCommand("vscode.open",r.Uri.parse(n))}}},549:e=>{e.exports=require("vscode")}},t={};function o(r){var s=t[r];if(void 0!==s)return s.exports;var n=t[r]={exports:{}};return e[r].call(n.exports,n,n.exports,o),n.exports}var r={};(()=>{var e=r;Object.defineProperty(e,"__esModule",{value:!0}),e.deactivate=e.activate=void 0;const t=o(549),s=o(928);e.activate=function(e){e.subscriptions.push(t.commands.registerTextEditorCommand("extension.docsSearch",(()=>{s.searcher("Docs")}))),e.subscriptions.push(t.commands.registerTextEditorCommand("extension.googleSearch",(()=>{s.searcher("Google")}))),e.subscriptions.push(t.commands.registerTextEditorCommand("extension.dbatoolsSearch",(()=>{s.searcher("dbatools")}))),e.subscriptions.push(t.commands.registerTextEditorCommand("extension.stackSearch",(()=>{s.searcher("Stackoverflow")}))),e.subscriptions.push(t.commands.registerTextEditorCommand("extension.duckSearch",(()=>{s.searcher("Duckduckgo")}))),e.subscriptions.push(t.commands.registerTextEditorCommand("extension.thwackSearch",(()=>{s.searcher("Thwack")}))),e.subscriptions.push(t.commands.registerTextEditorCommand("extension.technetSearch",(()=>{s.searcher("Technet")}))),e.subscriptions.push(t.commands.registerTextEditorCommand("extension.vscodeApiSearch",(()=>{s.searcher("VSCodeAPI")}))),e.subscriptions.push(t.commands.registerTextEditorCommand("extension.vscodeWorkspaceSearch",(()=>{s.searcher("VSCodeWorkbench")})))},e.deactivate=function(){}})(),module.exports=r})();
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ([
+/* 0 */,
+/* 1 */
+/***/ ((module) => {
+
+module.exports = require("vscode");
+
+/***/ }),
+/* 2 */
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+__exportStar(__webpack_require__(3), exports);
+
+
+/***/ }),
+/* 3 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.searcher = searcher;
+const vscode = __webpack_require__(1);
+const getSelectedText_1 = __webpack_require__(4);
+function searcher(template) {
+    var selectedText = (0, getSelectedText_1.getSelectedText)();
+    if (template === "VSCodeWorkbench") {
+        vscode.commands.executeCommand('workbench.action.findInFiles', {
+            query: selectedText,
+            triggerSearch: true
+        });
+    }
+    else {
+        if (!selectedText) {
+            return;
+        }
+        var uriText = encodeURI(selectedText);
+        var search = vscode.workspace.getConfiguration("search");
+        const qt = `queryTemplate.${template}`;
+        const queryTemplate = search.get(`queryTemplate.${template}`);
+        var query = queryTemplate.replace("-searchphrase-", uriText);
+        console.debug(`query is ${queryTemplate}`);
+        vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(query));
+    }
+}
+
+
+/***/ }),
+/* 4 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getSelectedText = getSelectedText;
+const vscode = __webpack_require__(1);
+function getSelectedText() {
+    const activeEditor = vscode.window.activeTextEditor;
+    const activeSelection = activeEditor.selection;
+    if (activeSelection.isEmpty) {
+        let cursorPosition = activeEditor.selection.start;
+        let wordRange = activeEditor.document.getWordRangeAtPosition(cursorPosition);
+        let highlight = activeEditor.document.getText(wordRange);
+        console.debug(`no explicitly selected text. highlighted on ${highlight}`);
+        return highlight;
+    }
+    const documentText = activeEditor.document.getText();
+    if (!documentText) {
+        console.debug("bailed on getText");
+        return '';
+    }
+    const selStartOffset = activeEditor.document.offsetAt(activeSelection.start);
+    const selEndOffset = activeEditor.document.offsetAt(activeSelection.end);
+    var selectedText = documentText.slice(selStartOffset, selEndOffset).trim();
+    selectedText = selectedText.replace(/\s\s+/g, ' ');
+    console.debug(`selected text is ${selectedText}`);
+    return selectedText;
+}
+
+
+/***/ })
+/******/ 	]);
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
+(() => {
+var exports = __webpack_exports__;
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.activate = activate;
+exports.deactivate = deactivate;
+const vscode = __webpack_require__(1);
+const utils_1 = __webpack_require__(2);
+function activate(context) {
+    context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.docsSearch", () => {
+        (0, utils_1.searcher)("Docs");
+    }));
+    context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.googleSearch", () => {
+        (0, utils_1.searcher)("Google");
+    }));
+    context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.dbatoolsSearch", () => {
+        (0, utils_1.searcher)("dbatools");
+    }));
+    context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.stackSearch", () => {
+        (0, utils_1.searcher)("Stackoverflow");
+    }));
+    context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.duckSearch", () => {
+        (0, utils_1.searcher)("Duckduckgo");
+    }));
+    context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.thwackSearch", () => {
+        (0, utils_1.searcher)("Thwack");
+    }));
+    context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.technetSearch", () => {
+        (0, utils_1.searcher)("Technet");
+    }));
+    context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.vscodeApiSearch", () => {
+        (0, utils_1.searcher)("VSCodeAPI");
+    }));
+    context.subscriptions.push(vscode.commands.registerTextEditorCommand("extension.vscodeWorkspaceSearch", () => {
+        (0, utils_1.searcher)("VSCodeWorkbench");
+    }));
+}
+function deactivate() { }
+
+})();
+
+module.exports = __webpack_exports__;
+/******/ })()
+;
+//# sourceMappingURL=extension.js.map
