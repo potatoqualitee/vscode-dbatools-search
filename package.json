@@ -1,8 +1,8 @@
 {
 	"name": "search",
 	"displayName": "search from code",
-	"description": "Search right from your code: dbatools, ChatGPT, Microsoft Learn, Google, VS Code workspace (Find in files) and more.",
-	"version": "2.1.0",
+	"description": "Search right from your code: GitHub, ChatGPT, Microsoft Learn, Google, VS Code workspace (Find in files), dbatools and more.",
+	"version": "2.2.0",
 	"icon": "resources/search.png",
 	"publisher": "dbatools",
 	"license": "MIT",
@@ -29,6 +29,11 @@
 		"menus": {
 			"editor/context": [
 				{
+					"when": "config.search.show.ChatGPT",
+					"command": "extension.chatGptSearch",
+					"group": "dbatools"
+				},
+				{
 					"when": "config.search.show.dbatools",
 					"command": "extension.dbatoolsSearch",
 					"group": "dbatools"
@@ -41,6 +46,21 @@
 				{
 					"when": "config.search.show.Duckduckgo",
 					"command": "extension.duckSearch",
+					"group": "dbatools"
+				},
+				{
+					"when": "config.search.show.GitHub",
+					"command": "extension.githubSearch",
+					"group": "dbatools"
+				},
+				{
+					"when": "config.search.show.GitHubRepo && gitOpenRepositoryCount != 0",
+					"command": "extension.githubRepoSearch",
+					"group": "dbatools"
+				},
+				{
+					"when": "config.search.show.GitHubAuthor && gitOpenRepositoryCount != 0",
+					"command": "extension.githubAuthorSearch",
 					"group": "dbatools"
 				},
 				{
@@ -72,15 +92,22 @@
 					"when": "config.search.show.VSCodeWorkspace",
 					"command": "extension.vscodeWorkspaceSearch",
 					"group": "dbatools"
-				},
-				{
-					"when": "config.search.show.ChatGPT",
-					"command": "extension.chatGptSearch",
-					"group": "dbatools"
 				}
 			]
 		},
 		"commands": [
+			{
+				"command": "extension.githubSearch",
+				"title": "Search GitHub"
+			},
+			{
+				"command": "extension.githubRepoSearch",
+				"title": "Search GitHub Repository"
+			},
+			{
+				"command": "extension.githubAuthorSearch",
+				"title": "Search GitHub Author"
+			},
 			{
 				"command": "extension.dbatoolsSearch",
 				"title": "Search dbatools"
@@ -126,6 +153,26 @@
 			"title": "dbatools Search Configuration",
 			"type": "object",
 			"properties": {
+				"search.queryTemplate.GitHub": {
+					"type": "string",
+					"default": "https://github.com/search?q=-searchphrase-&type=code",
+					"description": "Search query for GitHub"
+				},
+				"search.queryTemplate.GitHubRepo": {
+					"type": "string",
+					"default": "https://github.com/search?q=repo:-repo-+-searchphrase-&type=code",
+					"description": "Search query for GitHub repository"
+				},
+				"search.queryTemplate.GitHubAuthor": {
+					"type": "string",
+					"default": "https://github.com/search?q=owner:-author-+-searchphrase-&type=code",
+					"description": "Search query for GitHub author"
+				},
+				"search.limitToLanguage": {
+					"type": "boolean",
+					"default": true,
+					"description": "Automatically limit GitHub searches to the current file's language"
+				},
 				"search.queryTemplate.dbatools": {
 					"type": "string",
 					"default": "https://www.google.com/search?q=site:dbatools.io+OR+site:docs.dbatools.io+-searchphrase-",
@@ -170,6 +217,21 @@
 					"type": "string",
 					"default": "https://chatgpt.com/?hints=search&q=-searchphrase-",
 					"description": "Search query for ChatGPT"
+				},
+				"search.show.GitHub": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enable search context for GitHub"
+				},
+				"search.show.GitHubRepo": {
+					"type": "boolean",
+					"default": false,
+					"description": "Enable search context for GitHub repository (only shown in git repositories)"
+				},
+				"search.show.GitHubAuthor": {
+					"type": "boolean",
+					"default": false,
+					"description": "Enable search context for GitHub author (only shown in git repositories)"
 				},
 				"search.show.dbatools": {
 					"type": "boolean",
